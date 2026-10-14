@@ -469,7 +469,6 @@ impl Window {
     fn setup_preferences(&self) {
         let imp = self.imp();
 
-        // The Nautilus plugin is useless on KDE, Dolphin gets a service menu instead.
         let is_kde = std::env::var("XDG_CURRENT_DESKTOP")
             .is_ok_and(|it| it.split(':').any(|de| de.eq_ignore_ascii_case("KDE")));
         imp.nautilus_plugin_group.set_visible(!is_kde);
